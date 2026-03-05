@@ -1,13 +1,27 @@
 (function () {
-  const root = document.querySelector("[data-accordion]");
-  if (!root) return;
 
-  const buttons = root.querySelectorAll(".acc");
+  const buttons = document.querySelectorAll(".acc");
+
   buttons.forEach((btn) => {
+
     btn.addEventListener("click", () => {
+
+      const panel = btn.nextElementSibling;
       const isOpen = btn.getAttribute("aria-expanded") === "true";
-      buttons.forEach((b) => b.setAttribute("aria-expanded", "false"));
-      btn.setAttribute("aria-expanded", String(!isOpen));
+
+      buttons.forEach((b) => {
+        b.setAttribute("aria-expanded", "false");
+        const p = b.nextElementSibling;
+        if (p) p.style.display = "none";
+      });
+
+      if (!isOpen) {
+        btn.setAttribute("aria-expanded", "true");
+        if (panel) panel.style.display = "block";
+      }
+
     });
+
   });
+
 })();
