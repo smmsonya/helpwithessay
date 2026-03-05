@@ -305,3 +305,41 @@ h3{ margin:0 0 10px; font-size: 18px; }
 
 .tiny{ color: var(--muted); font-size: 12px; line-height: 1.55; margin: 10px 0 0; }
 .brand--footer .brand__mark{ width: 34px; height: 34px; border-radius: 12px; }
+
+.metrics .section__head{
+  margin-bottom: 14px;
+}
+
+.metrics__grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.metric{
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  background: rgba(255,255,255,.06);
+  padding: 18px 14px;
+  text-align: center;
+}
+
+.metric__num{
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 900;
+  letter-spacing: -.4px;
+  margin-bottom: 6px;
+}
+
+.metric__label{
+  color: rgba(255,255,255,.72);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+@media (max-width: 900px){
+  .metrics__grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px){
+  .metrics__grid{ grid-template-columns: 1fr; }
+}
